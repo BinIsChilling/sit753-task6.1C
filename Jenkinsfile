@@ -13,14 +13,9 @@ pipeline {
                 echo 'Running integration tests using Jest'
             }
             post {
-                success {
+                always {
                               mail to: 'auanson2918@gmail.com', 
                              subject: 'Unit and Integration Tests Passed',
-                              body: 'Unit and Integration Tests log attached!',
-                }
-                failure {
-                              mail to: 'auanson2918@gmail.com',
-                             subject: 'Unit and Integration Tests Failed',
                               body: 'Unit and Integration Tests log attached!',
                 }
             }
@@ -35,14 +30,9 @@ pipeline {
                 echo 'Performing security scan using OWASP ZAP'
             }
             post {
-                success {
+                always {
                               mail to: 'auanson2918@gmail.com',
                              subject: 'Security Scan Passed',
-                              body: 'Security Scan log attached!',
-                }
-                failure {
-                              mail to: 'auanson2918@gmail.com',
-                             subject: 'Security Scan Failed',
                               body: 'Security Scan log attached!',
                 }
             }
