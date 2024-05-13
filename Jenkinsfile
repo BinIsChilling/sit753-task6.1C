@@ -52,7 +52,7 @@ pipeline {
                 echo 'Deploying to production server using AWS EC2 instance'
             }
         }
-        stage('Complete') {
+        stage('Completed') {
             steps {
                 echo 'Completed'
             }
