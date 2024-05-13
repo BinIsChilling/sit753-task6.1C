@@ -1,45 +1,45 @@
 pipeline {
     agent any
     
-    environment {
-        DIRECTORY_PATH = "C:\\Users\\anson\\Documents\\GitHub\\Jenkinsfile"
-        TESTING_ENVIRONMENT = "Testing"
-        PRODUCTION_ENVIRONMENT = "Anson" 
-    }
-    
     stages {
         stage('Build') {
             steps {
-                echo "Fetching the source code from the directory path specified by the environment variable: ${env.DIRECTORY_PATH}"
-                echo "Compiling the code and generating any necessary artifacts"
+                // Use a build automation tool like Maven to compile and package the code
+                echo 'Building the code using Maven'
             }
         }
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
-                echo "Running unit tests"
-                echo "Running integration tests"
+                // Use test automation tools like Jest for unit tests and Postman for integration tests
+                echo 'Running unit tests using Jest'
+                echo 'Running integration tests using Jest'
             }
         }
-        stage('Code Quality Check') {
+        stage('Code Analysis') {
             steps {
-                echo "Checking the quality of the code"
+                echo 'Analyzing the code using SonarQube'
             }
         }
-        stage('Deploy') {
+        stage('Security Scan') {
             steps {
-                echo "Deploying the application to a testing environment specified by the environment variable: ${env.TESTING_ENVIRONMENT}"
+                echo 'Performing security scan using OWASP ZAP'
             }
         }
-        stage('Approval') {
+        stage('Deploy to Staging') {
             steps {
-                echo "Waiting for manual approval..."
-                sleep(time: 10, unit: 'SECONDS')
+                echo 'Deploying to staging server using AWS EC2 instance'
+            }
+        }
+        stage('Integration Tests on Staging') {
+            steps {
+                echo 'Running integration tests on staging environment'
             }
         }
         stage('Deploy to Production') {
             steps {
-                echo "Deploying the code to the production environment (${env.PRODUCTION_ENVIRONMENT})"
+                echo 'Deploying to production server using AWS EC2 instance'
             }
         }
     }
 }
+
