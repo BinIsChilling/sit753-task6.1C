@@ -16,14 +16,12 @@ pipeline {
                 success {
                               mail to: 'auanson2918@gmail.com', 
                              subject: 'Unit and Integration Tests Passed',
-                              body: 'Unit and Integration Tests passed successfully.',
-                              attachments: '**/target/surefire-reports/*.txt'
+                              body: 'Unit and Integration Tests log attached!',
                 }
                 failure {
                               mail to: 'auanson2918@gmail.com',
                              subject: 'Unit and Integration Tests Failed',
-                              body: 'Unit and Integration Tests failed.',
-                              attachments: '**/target/surefire-reports/*.txt'
+                              body: 'Unit and Integration Tests log attached!',
                 }
             }
         }
@@ -40,14 +38,12 @@ pipeline {
                 success {
                               mail to: 'auanson2918@gmail.com',
                              subject: 'Security Scan Passed',
-                              body: 'Security Scan passed successfully.',
-                              attachments: '**/security-scan-results/*.txt'
+                              body: 'Security Scan log attached!',
                 }
                 failure {
                               mail to: 'auanson2918@gmail.com',
                              subject: 'Security Scan Failed',
-                              body: 'Security Scan failed.',
-                              attachments: '**/security-scan-results/*.txt'
+                              body: 'Security Scan log attached!',
                 }
             }
         }
