@@ -14,14 +14,16 @@ pipeline {
             }
             post {
                 success {
-                    emailext subject: 'Unit and Integration Tests Passed',
+                              mail to: 'auanson2918@gmail.com', 
+                             subject: 'Unit and Integration Tests Passed',
                               body: 'Unit and Integration Tests passed successfully.',
-                              attachmentsPattern: '**/target/surefire-reports/*.txt'
+                              attachments: '**/target/surefire-reports/*.txt'
                 }
                 failure {
-                    emailext subject: 'Unit and Integration Tests Failed',
+                              mail to: 'auanson2918@gmail.com',
+                             subject: 'Unit and Integration Tests Failed',
                               body: 'Unit and Integration Tests failed.',
-                              attachmentsPattern: '**/target/surefire-reports/*.txt'
+                              attachments: '**/target/surefire-reports/*.txt'
                 }
             }
         }
@@ -36,14 +38,16 @@ pipeline {
             }
             post {
                 success {
-                    emailext subject: 'Security Scan Passed',
+                              mail to: 'auanson2918@gmail.com',
+                             subject: 'Security Scan Passed',
                               body: 'Security Scan passed successfully.',
-                              attachmentsPattern: '**/security-scan-results/*.txt'
+                              attachments: '**/security-scan-results/*.txt'
                 }
                 failure {
-                    emailext subject: 'Security Scan Failed',
+                              mail to: 'auanson2918@gmail.com',
+                             subject: 'Security Scan Failed',
                               body: 'Security Scan failed.',
-                              attachmentsPattern: '**/security-scan-results/*.txt'
+                              attachments: '**/security-scan-results/*.txt'
                 }
             }
         }
