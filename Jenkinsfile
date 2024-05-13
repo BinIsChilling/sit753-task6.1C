@@ -14,9 +14,9 @@ pipeline {
             }
             post {
                 always {
-                              mail to: 'auanson2918@gmail.com', 
-                             subject: 'Unit and Integration Tests Passed',
-                              body: 'Unit and Integration Tests log attached!',
+                              mail to: "auanson2918@gmail.com", 
+                             subject: "Unit and Integration Tests Passed",
+                              body: "Unit and Integration Tests log attached!",
                 }
             }
         }
@@ -31,9 +31,9 @@ pipeline {
             }
             post {
                 always {
-                              mail to: 'auanson2918@gmail.com',
-                             subject: 'Security Scan Passed',
-                              body: 'Security Scan log attached!',
+                              mail to: "auanson2918@gmail.com",
+                             subject: "Security Scan Passed",
+                              body: "Security Scan log attached!",
                 }
             }
         }
