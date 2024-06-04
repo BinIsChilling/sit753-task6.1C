@@ -26,7 +26,6 @@ pipeline {
                     to: "auanson2918@gmail.com",
                     subject: "Unit and Integration Test Status",
                     body: "Test was successful!",
-                    from: "nobody@nowhere",
                     attachmentsPattern: '**/logs.txt' 
                     )
                 }
@@ -36,7 +35,6 @@ pipeline {
                     to: "auanson2918@gmail.com",
                     subject: "Unit and Integration Test Status",
                     body: "Test failed!",
-                    from: "nobody@nowhere",
                     attachmentsPattern: '**/logs.txt' 
                     )
                 }
@@ -66,7 +64,6 @@ pipeline {
                     to: "auanson2918@gmail.com",
                     subject: "Security Scan Status",
                     body: "Scan was successful!",
-                    from: "nobody@nowhere",
                     attachmentsPattern: '**/logs.txt' 
                     )
                 }
@@ -76,7 +73,6 @@ pipeline {
                     to: "auanson2918@gmail.com",
                     subject: "Security Scan Status",
                     body: "Scan failed!",
-                    from: "nobody@nowhere",
                     attachmentsPattern: '**/logs.txt' 
                     )
                 }
