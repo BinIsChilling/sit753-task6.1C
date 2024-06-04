@@ -9,14 +9,23 @@ pipeline {
         }
         stage('Unit and Integration Tests') {
             steps {
-                echo 'Running unit tests using Jest'
-                echo 'Running integration tests using Jest'
+                script {
+                    echo 'Running unit tests using Jest'
+                    echo 'Running integration tests using Jest'
+                    sh 'echo "Unit and Integration Tests log content" > unit_integration_tests.log'
+                }
             }
             post {
                 always {
-                    mail to: "auanson2918@gmail.com", 
-                    subject: "Unit and Integration Tests Passed",
-                    body: "Unit and Integration Tests log attached!"
+                    archiveArtifacts artifacts: 'unit_integration_tests.log', allowEmptyArchive: true
+                    emailext (
+                        to: "auanson2918@gmail.com",
+                        subject: "Unit and Integration Tests ${currentBuild.currentResult}",
+                        body: """<p>Unit and Integration Tests have completed with status: ${currentBuild.currentResult}.</p>
+                                 <p>Find the attached logs for more details.</p>""",
+                        attachLog: true,
+                        attachmentsPattern: 'unit_integration_tests.log'
+                    )
                 }
             }
         }
@@ -27,16 +36,26 @@ pipeline {
         }
         stage('Security Scan') {
             steps {
-                echo 'Performing security scan using OWASP ZAP'
+                script {
+                    echo 'Performing security scan using OWASP ZAP'
+                    sh 'echo "Security Scan log content" > security_scan.log'
+                }
             }
             post {
                 always {
-                    mail to: "auanson2918@gmail.com",
-                    subject: "Security Scan Passed",
-                    body: "Security Scan log attached!"
+                    archiveArtifacts artifacts: 'security_scan.log', allowEmptyArchive: true
+                    emailext (
+                        to: "auanson2918@gmail.com",
+                        subject: "Security Scan ${currentBuild.currentResult}",
+                        body: """<p>Security Scan has completed with status: ${currentBuild.currentResult}.</p>
+                                 <p>Find the attached logs for more details.</p>""",
+                        attachLog: true,
+                        attachmentsPattern: 'security_scan.log'
+                    )
                 }
             }
         }
+
         stage('Deploy to Staging') {
             steps {
                 echo 'Deploying to staging server using AWS EC2 instance'
