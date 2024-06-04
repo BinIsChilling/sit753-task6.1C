@@ -24,7 +24,6 @@ pipeline {
                                  <p>Find the attached logs for more details.</p>""",
                         attachLog: true,
                         attachmentsPattern: 'unit_integration_tests.log'
-                    )
                 }
             }
         }
@@ -49,7 +48,6 @@ pipeline {
                                  <p>Find the attached logs for more details.</p>""",
                         attachLog: true,
                         attachmentsPattern: 'security_scan.log'
-                    )
                 }
             }
         }
