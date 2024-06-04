@@ -26,21 +26,21 @@ pipeline {
                     to: "auanson2918@gmail.com",
                     subject: "Unit and Integration Test Status",
                     body: "Test was successful!",
-                    from: "nobody@nowhere"
-                    attachmentsPattern: '**/logs.txt'
-                )
-            }
+                    from: "nobody@nowhere",
+                    attachmentsPattern: '**/logs.txt' 
+                    )
+                }
                failure {
                     echo "Status: FAILURE"
                     emailext (
                     to: "auanson2918@gmail.com",
                     subject: "Unit and Integration Test Status",
                     body: "Test failed!",
-                    from: "nobody@nowhere"
-                    attachmentsPattern: '**/logs.txt'
+                    from: "nobody@nowhere",
+                    attachmentsPattern: '**/logs.txt' 
                     )
                 }
-    }
+            }
         }
         stage('Code Analysis') {
             steps {
@@ -66,21 +66,21 @@ pipeline {
                     to: "auanson2918@gmail.com",
                     subject: "Security Scan Status",
                     body: "Scan was successful!",
-                    from: "nobody@nowhere"
-                    attachmentsPattern: '**/logs.txt'
-                )
-            }
+                    from: "nobody@nowhere",
+                    attachmentsPattern: '**/logs.txt' 
+                    )
+                }
                failure {
                     echo "Status: FAILURE"
                     emailext (
                     to: "auanson2918@gmail.com",
                     subject: "Security Scan Status",
                     body: "Scan failed!",
-                    from: "nobody@nowhere"
-                    attachmentsPattern: '**/logs.txt'
+                    from: "nobody@nowhere",
+                    attachmentsPattern: '**/logs.txt' 
                     )
                 }
-    }
+            }
         }
         stage('Deploy to Staging') {
             steps {
@@ -104,3 +104,4 @@ pipeline {
         }
     }
 }
+
