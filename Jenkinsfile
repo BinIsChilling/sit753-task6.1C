@@ -18,8 +18,7 @@ pipeline {
             post {
                 always {
                     archiveArtifacts artifacts: 'unit_integration_tests.log', allowEmptyArchive: true
-                    emailext (
-                        to: "auanson2918@gmail.com",
+                        mail to: "auanson2918@gmail.com",
                         subject: "Unit and Integration Tests ${currentBuild.currentResult}",
                         body: """<p>Unit and Integration Tests have completed with status: ${currentBuild.currentResult}.</p>
                                  <p>Find the attached logs for more details.</p>""",
@@ -44,8 +43,7 @@ pipeline {
             post {
                 always {
                     archiveArtifacts artifacts: 'security_scan.log', allowEmptyArchive: true
-                    emailext (
-                        to: "auanson2918@gmail.com",
+                        mail to: "auanson2918@gmail.com",
                         subject: "Security Scan ${currentBuild.currentResult}",
                         body: """<p>Security Scan has completed with status: ${currentBuild.currentResult}.</p>
                                  <p>Find the attached logs for more details.</p>""",
